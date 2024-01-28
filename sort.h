@@ -49,8 +49,4 @@ void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
-void swap_ints(int *a, int *b)
-void quick_sort_hoare(int *array, size_t size);
-int lomuto_partition(int *array, int low, int high, size_t size)
-void quick_sort_recursive(int *array, int low, int high, size_t size)
 #endif /* SORT_H */
