@@ -1,73 +1,33 @@
 #include "sort.h"
 
 /**
- * quick_sort - function to sort an array of integers
- *              in ascending order using the Quick sort algorithm
- * @array: array
- * @size: array's size
- * Return: void
+ * selection_sort - A function that use selection sort algorithm.
+ * @array: An array to sort.
+ * @size: The size of the array.
+ * Return: Nothing.
  */
-void quick_sort(int *array, size_t size)
+void selection_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
+	int aux = 0;
+	size_t i = 0, j = 0, pos = 0;
+
+	if (array == NULL || size == 0)
 		return;
 
-	quick_s(array, 0, size - 1, size);
-}
-
-/**
- * partition - partition
- * @array: array
- * @lower: lower
- * @higher: higher
- * @size: array's size
- * Return: i
- */
-int partition(int *array, int lower, int higher, size_t size)
-{
-	int i = lower - 1, j = lower;
-	int pivot = array[higher], aux = 0;
-
-	for (; j < higher; j++)
+	for (; i < size - 1; i++)
 	{
-		if (array[j] < pivot)
+		pos = i;
+		for (j = i + 1; j < size; j++)
 		{
-			i++;
-			if (array[i] != array[j])
-			{
-				aux = array[i];
-				array[i] = array[j];
-				array[j] = aux;
-				print_array(array, size);
-			}
+			if (array[j] < array[pos])
+				pos = j;
 		}
-	}
-	if (array[i + 1] != array[higher])
-	{
-		aux = array[i + 1];
-		array[i + 1] = array[higher];
-		array[higher] = aux;
-		print_array(array, size);
-	}
-	return (i + 1);
-}
-
-/**
- * quick_s - quick sort
- * @array: given array
- * @lower: lower
- * @higher:highergher
- * @size: array's size
- * Return: void
- */
-void quick_s(int *array, int lower, int higher, size_t size)
-{
-	int pivot;
-
-	if (lower < higher)
-	{
-		pivot = partition(array, lower, higher, size);
-		quick_s(array, lower, pivot - 1, size);
-		quick_s(array, pivot + 1, higher, size);
+		if (pos != i)
+		{
+			aux = array[i];
+			array[i] = array[pos];
+			array[pos] = aux;
+			print_array(array, size);
+		}
 	}
 }
