@@ -50,5 +50,7 @@ void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-
+quick_sort(int *array, size_t size)
+lomuto_partition(int *array, int low, int high, size_t size)
+quick_sort_recursive(int *array, int low, int high, size_t size)
 #endif /* SORT_H */
